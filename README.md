@@ -1,11 +1,11 @@
-Boxy
+# Boxy
 A programming language made in Python, hypothetically capable of reconstructing its own code at runtime.
 
-How does it work?
+# How does it work?
 ($ is used for comments!)
 Boxy uses @ to assign blocks and # to reference or use existing ones.
 
-Assigning Blocks
+**Assigning Blocks**
 Example:
 @"New Class":$Body$.
 
@@ -14,7 +14,7 @@ This creates a new Entity, assigning it a unique internal ID. Entities can later
 You can assign multiple names to the same entity like this:
 @"New Class"@"Another Class":$Body$.
 
-Accessing or Using Blocks
+**Accessing or Using Blocks**
 Example:
 #"New Class"/valid.
 
@@ -23,7 +23,7 @@ This line returns a boolean value indicating whether the given name points to an
 Multiple names can also be checked at once:
 #"New Class"#"Another Class"/valid.
 
-Syntax
+**Syntax**
 Every command must end with a dot (.).
 This applies to:
 
@@ -41,9 +41,6 @@ Parameters are defined using * and wrapped in $...$.
 
 Example:
 
-ruby
-Másolás
-Szerkesztés
 new func CreateFunction*$parameter list$ new b BoolParam.$
 :
 $function body$
@@ -52,12 +49,11 @@ The function body always starts with a colon (:)
 
 The declaration ends with a dot (.)
 
-Branches
+**Branches**
 To create a branch, use the following structure:
 
-sql
-Másolás
-Szerkesztés
+**sql**
+
 ?Condition:
   !True: $if Condition == True$
   .
@@ -66,5 +62,5 @@ Szerkesztés
 .
 This works like a switch statement. The ? holds the value to evaluate, and each ! is a possible case.
 
-Answering
+**Answering**
 Use Answer to return a value from a block or function — similar to the return keyword in other languages.
