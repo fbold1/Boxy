@@ -1,0 +1,164 @@
+DEBUG - 2025-08-03 23:03:18.847712 - LOGGING AST
+-----------------------------------------------------------------
+ABSTRACT TREE (AST):
+
+ ('ASSIGN', 
+  ('BOOL', 'CreateBool', 
+   ('BOOL', 'TRUE'
+   )
+  )
+ )
+---------------------------------------------------
+
+ ('ASSIGN', 
+  ('STRING', 'CreateString', 
+   ('STRING', 'Hello World!'
+   )
+  )
+ )
+---------------------------------------------------
+
+ ('ASSIGN', 
+  ('STRING', 'CreateStringThisWay', 
+   ('STRING', 'Hello World, Again!'
+   )
+  )
+ )
+---------------------------------------------------
+
+ ('ASSIGN', 
+  ('INT', 'CreateInt', 
+   ('INT', '12'
+   )
+  )
+ )
+---------------------------------------------------
+
+ ('REGISTER', 
+  ('ENTITY', 
+   [
+    ('STRING', 'CreateClass'
+    )
+   ], 
+   ('CREATE', 
+    ('FUNC', 'CreateFunction', 
+     [
+      ('ASSIGN', 
+       ('BOOL', 'BoolParam', 'FALSE'
+       )
+      )
+     ], 
+     [
+      ('ASSIGN', 
+       ('STRING', 'CreateStringLocal', 
+        ('STRING', 'Function worked!'
+        )
+       )
+      ), 
+      ('ANSWER', 
+       ('VAR', 'CreateStringLocal'
+       )
+      )
+     ]
+    )
+   )
+  )
+ )
+---------------------------------------------------
+
+ ('BRANCH', 
+  ('GET', 
+   (
+    [
+     ('STRING', 'CreateClass'
+     ), 
+     ('STRING', 'SecondClass'
+     )
+    ], 'valid', 
+    [
+    ], '*'
+   )
+  ), 
+  [
+   ('PATH', 
+    ('BOOL', 'FALSE'
+    ), 
+    [
+     ('GET', 
+      (
+       [
+        ('STRING', 'CreateClass'
+        )
+       ], 'add', 
+       [
+        ('STRING', 'SecondClass'
+        )
+       ], '*'
+      )
+     )
+    ]
+   )
+  ]
+ )
+---------------------------------------------------
+
+ ('GET', 
+  (
+   [
+    ('STRING', 'CreateClass'
+    ), 
+    ('STRING', 'SecondClass'
+    )
+   ], 'run', 
+   [
+   ], '*'
+  )
+ )
+---------------------------------------------------
+
+ ('REASSIGN', 
+  ('RUN', 'CreateString', 
+   ('RUN', 
+    ('CreateFunction', 
+     [
+      ('BOOL', 'TRUE'
+      )
+     ]
+    )
+   )
+  )
+ )
+---------------------------------------------------
+[INTERPRETER]:STARTING INTERPRET--AST IS FINE
+[INTERPRETER]:MAX FRAME COUNT: 10
+[INTERPRETER]:CURRENT FRAME COUNT: 0
+[INTERPRETER]:ENTITY ID: 0
+[INTERPRETER]:VAR DICT: {}
+[INTERPRETER]:FUNC DICT: {}
+[INTERPRETER]:ENTITY DICT: {}
+[INTERPRETER]:ENTITY MAP: {}
+[INTERPRETER]:POS: 0
+[INTERPRETER]:'CreateBool' is now equal to TRUE of type BOOL!
+[INTERPRETER]:'CreateString' is now equal to Hello World! of type STRING!
+[INTERPRETER]:'CreateStringThisWay' is now equal to Hello World, Again! of type STRING!
+[INTERPRETER]:'CreateInt' is now equal to 12 of type INT!
+[INTERPRETER]:KEYS: [('STRING', 'CreateClass')]
+[INTERPRETER]:REGISTERED ENTITY WITH KEYS: [('STRING', 'CreateClass')]
+[INTERPRETER]:VALIDITY CHECK FOR [('STRING', 'CreateClass'), ('STRING', 'SecondClass')]
+[INTERPRETER]:DEBUG: ALL KEYS: {('STRING', 'CreateClass'): 1}
+[INTERPRETER]:BRANCH VALUE: ('BOOL', 'FALSE')
+[INTERPRETER]:PATH VALUE: ('BOOL', 'FALSE')
+[INTERPRETER]:BRANCH CHECK SUCCEEDED!
+[INTERPRETER]:RUNNING BRANCH BODY: ('GET', ([('STRING', 'CreateClass')], 'add', [('STRING', 'SecondClass')], '*'))
+[INTERPRETER]:ADDED CLASS: ('STRING', 'SecondClass') TO [('STRING', 'CreateClass')] ENTITY 
+[INTERPRETER]:NEXT ENTITY: GET
+[INTERPRETER]:RUNNING ENTITY: CREATE
+[INTERPRETER]:DEFINED CreateFunction with params {'BoolParam': ('BOOL', 'FALSE')} and body [('ASSIGN', ('STRING', 'CreateStringLocal', ('STRING', 'Function worked!'))), ('ANSWER', ('VAR', 'CreateStringLocal'))]!
+[INTERPRETER]:RUNNING FUNCTION CreateFunction! 
+[INTERPRETER]:RUNNING FUNCTION CreateFunction! 
+[INTERPRETER]:CURRENT FRAME COUNT:2 OUT OF 10
+[INTERPRETER]:'CreateStringLocal' is now equal to Function worked! of type STRING!
+[INTERPRETER]:ANSWER IS ('VAR', 'CreateStringLocal')!
+[INTERPRETER]:EXITING FUNCTION CreateFunction!
+[INTERPRETER]:'CreateStringLocal' is equal to Function worked! of type STRING!
+[INTERPRETER]:REASSIGNMENT: 'CreateString' is now equal to Function worked! of type STRING!

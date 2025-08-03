@@ -1,0 +1,20 @@
+new b CreateBool = True.
+new S CreateString = "Hello World!".
+new string CreateStringThisWay="Hello World, Again!".
+new i CreateInt=12.
+@"CreateClass":
+new func CreateFunction* new b BoolParam.:
+    new S CreateStringLocal="Function worked!".
+    answer CreateStringLocal.
+.
+
+?#"CreateClass"#"SecondClass"/valid.:
+!False:
+#"CreateClass"/add/"SecondClass".
+.
+.
+#"CreateClass"#"SecondClass"/run.
+CreateString=run CreateFunction* True..
+
+
+
