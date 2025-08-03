@@ -1,44 +1,70 @@
-# Boxy
-A language made in python, hypoteticly capable of recounstructing the code in run time. 
+Boxy
+A programming language made in Python, hypothetically capable of reconstructing its own code at runtime.
 
+How does it work?
+($ is used for comments!)
+Boxy uses @ to assign blocks and # to reference or use existing ones.
 
-# How does it work?
-($ is used to add comments!)
-Boxy uses @ to assign, and # to use blocks of code.
+Assigning Blocks
+Example:
+@"New Class":$Body$.
 
-**assign blocks**
+This creates a new Entity, assigning it a unique internal ID. Entities can later be accessed by their names.
 
-example: @"New Class":$Body$.
-this will add a new Entity, with an Entity ID assigned to it. This ID is used to find These Entites by their Names
-you can add multiple names to the same entity: @"New Class"@"Another Class":$Body$.
+You can assign multiple names to the same entity like this:
+@"New Class"@"Another Class":$Body$.
 
-**find/use blocks**
+Accessing or Using Blocks
+Example:
+#"New Class"/valid.
 
-example: #"New Class"/valid.
-this line will return a boolean, checking if this class is actually points at az Entity.
-you can add multiple names here as well: #"New Class"#"Another Class"/valid.
+This line returns a boolean value indicating whether the given name points to an existing Entity.
 
-**sintacs**
+Multiple names can also be checked at once:
+#"New Class"#"Another Class"/valid.
 
-after every command, a dot is required. This means, that creating a variable, function, calling them, reassigning, or answering should always end with dot.
-* means parameters. example:
-new func CreateFunction*$here come all the paramters$ new b BoolParam.$paramters also ends with a dot$ :
-$body$
-. $ function declaration also ends with dot$
-if a command contains a body, the body should always start with a colon.
+Syntax
+Every command must end with a dot (.).
+This applies to:
 
-**Branches**
+variable creation
 
-in order to create a branch, you will need to use this structure:
-?True: $if True==?$
-  !True: $ if ?==True -> True==True$
+function declaration
+
+function calls
+
+reassignment
+
+return statements
+
+Parameters are defined using * and wrapped in $...$.
+
+Example:
+
+ruby
+Másolás
+Szerkesztés
+new func CreateFunction*$parameter list$ new b BoolParam.$
+:
+$function body$
+.
+The function body always starts with a colon (:)
+
+The declaration ends with a dot (.)
+
+Branches
+To create a branch, use the following structure:
+
+sql
+Másolás
+Szerkesztés
+?Condition:
+  !True: $if Condition == True$
   .
-  !False:$if ?==False->True==False$
+  !False: $if Condition == False$
   .
 .
-so branches work like switch!
+This works like a switch statement. The ? holds the value to evaluate, and each ! is a possible case.
 
-**Answer**
-
-Answer can be used as return. 
-
+Answering
+Use Answer to return a value from a block or function — similar to the return keyword in other languages.
